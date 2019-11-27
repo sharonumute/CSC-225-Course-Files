@@ -1,0 +1,249 @@
+% 225k17_latex_sample.tex
+% 
+% This is a sample LaTeX source file with examples of LaTeX code similar to
+% what is needed to type a CSC 225 assignment.
+%
+% There are numerous programs for editing and compiling LaTeX documents.
+% The most basic way to produce a PDF from LaTeX source is the command line
+% 'pdflatex' program. On the (linux) ECS 242 machines, the command would be
+%	pdflatex 225k17_latex_sample.tex
+%
+% Note: A common compile error is caused by having the PDF file open while
+% trying to compile a new version. In some cases, this results in the LaTeX
+% compiler being unable to write to the file (so it gives a cryptic error).
+% Make sure you close your PDF reader before recompiling.
+%
+% One good online reference for LaTeX commands is the Wikibook at
+% 	http://en.wikibooks.org/wiki/LaTeX
+%
+% B. Bird - 05/17/2017
+
+
+% If you don't care about background information and just want to type your
+% assignment, scroll down to line 81 (to set the title and your name), then
+% scroll to 97 to start writing.
+
+
+
+
+
+% LaTeX is essentially a programming language: it has functions, variables
+% and scoping rules. Most people just use it to generate formatted text,
+% though.
+%
+% A '%' character begins a comment, which lasts until the end of a line.
+% Whitespace is usually irrelevant (in most cases, one space has the same
+% effect has several spaces or tabs).
+% Commands begin with the \ character. The first command in a LaTeX document
+% is usually the \documentclass command, which defines the type of document
+% being created. We will use the 'artikel3' class, which is a good choice for
+% general purpose use. Also good for general use is the 'article' class, which
+% is similar to 'artikel3' but with different paragraph formatting (which tends
+% to be better for written material but not as pleasant for assignments).
+% Other classes include 'book', 'report', 'letter' and 'beamer' (for slides).
+% The general structure of a LaTeX command is
+%	\commandname{argument1}{argument2}{etc.}
+% Some commands (including \documentclass) also have optional arguments, which
+% can be omitted. The optional argument for \documentclass allows us to specify
+% extra parameters about the document. We will specify letter-sized paper
+% and a 12pt font.
+
+\documentclass[letterpaper, 12pt]{artikel3}
+
+% After the \documentclass command, most LaTeX documents also include several
+% packages. The \usepackage command imports commands or specifications from
+% an external library (similar to the import command in Java).
+
+% We will only use some basic packages.
+
+% Use the 'fullpage' package to alter the margins to fill the entire page.
+% (By default, the artikel3 class uses very limited margins).
+
+\usepackage{fullpage}
+
+% These packages add a few useful math symbols.
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+% The verbatim package allows pre-formatted text (like code) to be included.
+\usepackage{verbatim}
+
+% The algorithmic package provides a somewhat convenient way to typeset
+% algorithms.
+\usepackage{algorithmic}
+
+% Many LaTeX documents also contain definitions for custom commands
+% in this part of the source file.
+
+
+% Set the title, author and date
+\title{CSC 225 LaTeX sample}
+% The '\today' command inserts the current date
+\date{ \today }
+\author{Insert Name Here}
+
+% After all of the desired packages have been included, the actual text
+% of the document is written between the commands \begin{document}
+% and \end{document}
+%
+\begin{document}
+
+% The '\maketitle' command inserts the title/author/date information from
+% above as a nicely formatted title.
+% (You could also make the title manually using centering and font commands)
+\maketitle
+
+This is some ordinary text.
+LaTeX ignores single newlines (so two adjacent lines appear as part of the same paragraph).
+
+Leaving a blank line starts a new paragraph.
+
+% To number the questions in the assignment, the \section* command can be
+% used (even though it's intended primarily for chapter and section headings
+% in reports).
+
+\section*{Question 1}
+
+% To typeset a mathematical formula, put it between $ characters.
+% Try to avoid putting text inside of math delimiters (since it will be
+% formatted strangely).
+
+Here is some math: $n^2 + n - 1000 > 0$ for all $n > n_0$
+
+% Exponents are created with ^ and subscripts are created with _
+% Note that by default, only the first character after ^ or _ is
+% used for an exponent or subscript.
+
+Bad attempt at writing n to the power 123: $n^123$.
+
+% To group text together, enclose it in curly brackets. This allows
+% multi-character exponents:
+
+Better attempt at writing n to the power 123: $n^{123}$.
+
+% Square roots can be created with the \sqrt command.
+% Everything inside the argument to \sqrt is placed under the radical.
+
+Square root of 2 times n plus 1: $\sqrt{2n + 1}$
+
+% To create fractions, use the \frac command.
+% The first argument of \frac is the numerator, and the second argument
+% is the denominator.
+
+Here is a simple fraction: $\frac{1}{2}$
+
+% Mathematical formulas can be nested:
+
+Here is a less simple fraction: $\frac{n^2 + n + 100}{\sqrt{2}}$
+
+
+% The 'regular' math typesetting using $ is designed to put math inline
+% with text.
+
+Using the definition of Big-O, we can prove that $n^2 \in O(n^3)$ and $5n^3 \in \Theta(n^3)$.
+
+% Sometimes, the inline representation gets too crowded and looks ugly.
+
+The limit of $\frac{n^2 + n + 100}{n^{\sqrt{n}}}$ converges to 0 as n goes to infinity.
+
+% Enclosing math between \[ and \] typesets it in 'display mode', which centers
+% it and ensures that everything is properly sized.
+
+The limit of 
+	\[\frac{n^2 + n + 100}{n^{\sqrt{n}}}\]
+converges to 0 as n goes to infinity.
+
+% Summations can be written with the \sum command
+% The limits of the summation are specified using subscripts and exponents.
+
+By induction, we can prove that
+	\[\sum_{i = 0}^{n} 2^i = 2^{n+1} - 1\]
+	
+% Since curly brackets have a special meaning, you must use \{ and \} if you
+% want them to appear in text.
+
+If $A = \{1,2,3\}$ and $B = \{4,5,6\}$, then
+	\[A \cap B = \emptyset\] 
+	
+% Many LaTeX commands (like \emptyset) are intuitively named.
+% Some (like \cap for the set-intersection sign) are not.
+% It is usually helpful to look up a reference sheet for LaTeX symbols
+% online.
+
+\section*{Question 2}
+Sometimes, you may want to include raw text (including \$ and \{ characters) without
+having to escape all the special characters.
+
+% To add raw text, put it between a \begin{verbatim} and \end{verbatim}
+% commands:
+\begin{verbatim}
+This is raw text.
+Look at all these special characters: !@#$%^&*{}
+LaTeX code in verbatim text is ignored: \begin{document} $n \leq n^2$ \end{document}
+\end{verbatim}
+
+\section*{Question 3}
+
+Below is a proof of the identity
+\[\sum_{i=0}^n i = \frac{n(n+1)}{2}\]
+for all $n \geq 0$.
+
+%To boldface text, use the \textbf command
+
+\textbf{Basis}: When $n = 0$, $\sum_{i=0}^n i = 0$, and $\frac{n(n+1)}{2} = 0$, so the identity holds.
+
+\textbf{Induction Hypothesis}: Suppose $\sum_{i=0}^n i = \frac{n(n+1)}{2}$ for some $n \geq 0$.
+
+\textbf{Induction Step}:
+		Consider $n+1$.
+		% To produce a set of aligned equations (often helpful in proofs), use the align* environment
+		% The align* environment produces three 'columns', delimited by & symbols
+		% Usually, you only need two columns (left and right side of an equals sign).
+		% In the proof below, the third column (which appears on the right side of the page)
+		% is used for the text 'by the induction hypothesis'. 
+		% The \text command is needed when displaying text inside of align*, since everything
+		% inside align* is treated as math by default.
+		% To end each line, use \\
+		% If you don't use \\ at the end of a line, the LaTeX compiler may give an error.
+		\begin{align*}
+			\sum_{i=0}^{n+1} i & = (n+1) + \sum_{i=0}^n i\\
+							   & = (n+1) + \frac{n(n+1)}{2} & \text{(By the induction hypothesis)}\\
+							   & = \frac{2n + 2 + n^2 + n}{2}\\
+							   & = \frac{n^2 + 3n + 2}{2}\\
+							   & = \frac{(n+1)(n+2)}{2}
+		\end{align*}
+		Therefore, the identity holds for $n+1$, and by induction, the identity holds for all $n \geq 0$.
+
+\section*{Question 4}
+
+Here is some pseudocode for an algorithm which computes the sum
+	\[\sum_{i=0}^n i\]
+and returns the computed value.
+\begin{algorithmic}
+	\STATE $x \gets 0$
+	\FOR{$i \gets 0, 1, 2, \ldots, n$}
+		\STATE $x \gets x + i$
+	\ENDFOR
+	\RETURN $x$
+\end{algorithmic}
+
+The pseudocode can also be written with a while loop.
+\begin{algorithmic}
+	\STATE $x \gets 0$
+	\IF{$n = 0$}
+		\RETURN 0
+	\ENDIF
+	\STATE $i \gets 0$
+	\WHILE{$i \leq n$}
+		\STATE $x \gets x + i$
+		\STATE $i \gets i + 1$
+	\ENDWHILE
+	\RETURN $x$
+\end{algorithmic}
+
+
+
+
+
+\end{document}

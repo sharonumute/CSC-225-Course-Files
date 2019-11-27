@@ -1,0 +1,70 @@
+% 225k17_latex_template.tex
+% 
+% This is a blank template for a LaTeX document, such as an assignment.
+%
+% There are numerous programs for editing and compiling LaTeX documents.
+% The most basic way to produce a PDF from LaTeX source is the command line
+% 'pdflatex' program. On the (linux) ECS 242 machines, the command would be
+%	pdflatex 225k17_latex_template.tex
+%
+% Note: A common compile error is caused by having the PDF file open while
+% trying to compile a new version. In some cases, this results in the LaTeX
+% compiler being unable to write to the file (so it gives a cryptic error).
+% Make sure you close your PDF reader before recompiling.
+%
+% One good online reference for LaTeX commands is the Wikibook at
+% 	http://en.wikibooks.org/wiki/LaTeX
+%
+% B. Bird - 05/17/2017
+
+
+\documentclass[letterpaper, 12pt]{artikel3}
+
+% Use the 'fullpage' package to alter the margins to fill the entire page.
+% (By default, the artikel3 class uses very limited margins).
+
+\usepackage{fullpage}
+
+% These packages add a few useful math symbols.
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+% The verbatim package allows pre-formatted text (like code) to be included.
+\usepackage{verbatim}
+
+% The algorithmic package provides a somewhat convenient way to typeset
+% algorithms.
+\usepackage{algorithmic}
+
+
+
+% Set the title, author and date
+\title{CSC 225 LaTeX template}
+% The '\today' command inserts the current date
+\date{ \today }
+\author{Insert Name Here}
+
+\begin{document}
+
+% The '\maketitle' command inserts the title/author/date information from
+% above as a nicely formatted title.
+\maketitle
+
+
+\section*{Question 1}
+
+
+
+\section*{Question 2}
+
+
+\section*{Question 3}
+
+\section*{Question 4}
+
+
+
+
+
+\end{document}
